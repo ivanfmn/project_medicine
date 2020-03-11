@@ -1,4 +1,4 @@
-package com.example.medicine.View;
+package com.example.medicine.Interface;
 
 import com.example.medicine.Model.Card;
 

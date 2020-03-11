@@ -1,8 +1,8 @@
-package com.example.medicine.View;
+package com.example.medicine.Interface;
 
 import com.example.medicine.Model.Card;
 
 public interface BigInformationInt {
 
-    void SetText(Card s_Card);
+    void setText(Card s_Card);
 }

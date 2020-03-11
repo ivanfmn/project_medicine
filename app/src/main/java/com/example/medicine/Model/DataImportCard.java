@@ -21,26 +21,19 @@ public class DataImportCard {
             SickLeave s_SickLeave = new SickLeave();
             ArrayList<Recipe> s_Recipes = new ArrayList<Recipe>();
             Recipe s_Recipe = new Recipe();
-
-            s_Card.SetFullName("Irina","Fomenko","Vasilevna");
-            s_Card.SetDateCard("15.12.2019");
-            s_Card.SetNameService("Visit");
-            s_Card.SetOnSickLeave(false);
-            s_Card.SetOnVaccination(false);
-            s_Card.SetRepeatedReception(true, "01.01.2021");
-
-            s_Recipe.SetNameDrug("XX 1 XX");
+            s_Card.setFullName("Irina","Fomenko","Vasilevna");
+            s_Card.setDateCard("15.12.2019");
+            s_Card.setNameService("Visit " + i);
+            s_Card.setOnSickLeave(false);
+            s_Card.setOnVaccination(false);
+            s_Card.setRepeatedReception(true, "01.01.2021");
+            s_Recipe.setNameDrug("XX 1 XX");
             s_Recipes.add(s_Recipe);
-
-            s_SickLeave.SetRecipes(s_Recipes);
+            s_SickLeave.setRecipes(s_Recipes);
             s_Cards.add(s_Card);
         }
 
         return s_Cards;
-
-        /*s_Card = s_Cards.get(0);
-        s_SickLeave = s_Card.GetSickLeave();
-        s_Recipes = s_SickLeave.GetRecipes();*/
     }
 
 

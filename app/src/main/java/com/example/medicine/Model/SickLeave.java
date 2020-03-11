@@ -4,66 +4,66 @@ import java.util.ArrayList;
 
 public class SickLeave{
 
-    private String Diagnosis;
-    private String StartSickLeave;
-    private String EndSickLeave;
-    private Integer AmountRecipes;
-    private Boolean GoToWork;
-    private ArrayList<Recipe> Recipes;
+    private String diagnosis;
+    private String startSickLeave;
+    private String endSickLeave;
+    private Integer amountRecipes;
+    private Boolean goToWork;
+    private ArrayList<Recipe> recipes;
 
-    public SickLeave Init()
+    public SickLeave init()
     {
         return new SickLeave();
     }
-    public void SetDiagnosis(String Diagnosis)
+    public void setDiagnosis(String Diagnosis)
     {
-        this.Diagnosis = Diagnosis;
+        this.diagnosis = Diagnosis;
     }
-    public void SetStartEndSickLeave(String Start, String End)
+    public void setStartEndSickLeave(String Start, String End)
     {
-        this.StartSickLeave = Start;
-        this.EndSickLeave = End;
+        this.startSickLeave = Start;
+        this.endSickLeave = End;
     }
-    private void SetAmountRecipe(ArrayList<Recipe> Recipes)
+    private void setAmountRecipe(ArrayList<Recipe> Recipes)
     {
-        this.AmountRecipes = Recipes.size();
+        this.amountRecipes = Recipes.size();
     }
-    public void SetGoToWork(Boolean YON)
+    public void setGoToWork(Boolean YON)
     {
-        this.GoToWork = YON;
+        this.goToWork = YON;
     }
-    public void SetRecipes(ArrayList<Recipe> Recipes)
+    public void setRecipes(ArrayList<Recipe> Recipes)
     {
-        this.Recipes = Recipes;
-        this.SetAmountRecipe(Recipes);
+        this.recipes = Recipes;
+        this.setAmountRecipe(Recipes);
     }
-    public void AddRecipe(Recipe recipe)
+    public void addRecipe(Recipe recipe)
     {
-        this.Recipes.add(recipe);
+        this.recipes.add(recipe);
     }
-    public String GetDiagnosis()
+    public String getDiagnosis()
     {
-        return this.Diagnosis;
+        return this.diagnosis;
     }
-    public String GetStartSickLeave()
+    public String getStartSickLeave()
     {
-        return this.StartSickLeave;
+        return this.startSickLeave;
     }
-    public String GetEndSickLeave()
+    public String getEndSickLeave()
     {
-        return this.EndSickLeave;
+        return this.endSickLeave;
     }
-    public Integer GetAmountRecipe()
+    public Integer getAmountRecipe()
     {
-        return this.AmountRecipes;
+        return this.amountRecipes;
     }
-    public Boolean GetGoToWork()
+    public Boolean getGoToWork()
     {
-        return this.GoToWork;
+        return this.goToWork;
     }
 
-    public ArrayList<Recipe> GetRecipes()
+    public ArrayList<Recipe> getRecipes()
     {
-        return this.Recipes;
+        return this.recipes;
     }
 }

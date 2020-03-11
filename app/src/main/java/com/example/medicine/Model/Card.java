@@ -4,158 +4,153 @@ import java.util.ArrayList;
 
 public class Card {
 
-    private Integer NumberCard;
-    private String NameDoctor;
-    private String SurNameDoctor;
-    private String PatronymicDoctor;
-    private String Date;
-    private String Place;
-    private Boolean RepeatedReception;
-    private String DateRepeatedReception;
-    private String NameService;
-    private Boolean OnVaccination;
-    private Integer AmountVaccinations;
-    private ArrayList<Vaccination> Vaccinations;
-    private Boolean OnSickLeave;
-    private SickLeave sickleave;
+    private Integer numberCard;
+    private String nameDoctor;
+    private String surNameDoctor;
+    private String patronymicDoctor;
+    private String date;
+    private String place;
+    private Boolean repeatedReception;
+    private String dateRepeatedReception;
+    private String nameService;
+    private Boolean onVaccination;
+    private Integer amountVaccinations;
+    private ArrayList<Vaccination> vaccinations;
+    private Boolean onSickLeave;
+    private SickLeave sickLeave;
 
 
-    public Card Init()
+    public Card init()
     {
         return new Card();
     }
-    public void SetNumberCard(Integer Number)
+    public void setNumberCard(Integer Number)
     {
-        this.NumberCard = Number;
+        this.numberCard = Number;
     }
-    public void SetFullName(String Name, String SurName, String PatronymicDoctor)
+    public void setFullName(String Name, String SurName, String PatronymicDoctor)
     {
-        this.NameDoctor = Name;
-        this.SurNameDoctor = SurName;
-        this.PatronymicDoctor = PatronymicDoctor;
+        this.nameDoctor = Name;
+        this.surNameDoctor = SurName;
+        this.patronymicDoctor = PatronymicDoctor;
     }
-    public void SetNameService(String NameService)
+    public void setNameService(String NameService)
     {
-        this.NameService = NameService;
+        this.nameService = NameService;
     }
-    public void SetDateCard(String Date)
+    public void setDateCard(String Date)
     {
-        this.Date = Date;
+        this.date = Date;
     }
-    public void SetPlace(String Place)
+    public void setPlace(String Place)
     {
-        this.Place = Place;
+        this.place = Place;
     }
-    public void SetRepeatedReception(Boolean No)
+    public void setRepeatedReception(Boolean No)
     {
-        this.RepeatedReception = No;
+        this.repeatedReception = No;
     }
-    public void SetRepeatedReception(Boolean Yes, String DateRepeatedReception)
+    public void setRepeatedReception(Boolean Yes, String DateRepeatedReception)
     {
-        this.RepeatedReception = Yes;
-        this.DateRepeatedReception = DateRepeatedReception;
+        this.repeatedReception = Yes;
+        this.dateRepeatedReception = DateRepeatedReception;
     }
-    public void SetOnVaccination(Boolean No)
+    public void setOnVaccination(Boolean No)
     {
-        this.OnVaccination = No;
+        this.onVaccination = No;
     }
-    public void SetOnVaccination(Boolean Yes, ArrayList<Vaccination> Vaccinations)
+    public void setOnVaccination(Boolean Yes, ArrayList<Vaccination> Vaccinations)
     {
-        this.OnVaccination = Yes;
-        this.Vaccinations = Vaccinations;
-        this.SetAmountVaccinations(Vaccinations);
+        this.onVaccination = Yes;
+        this.vaccinations = Vaccinations;
+        this.setAmountVaccinations(Vaccinations);
     }
-    public void SetOnSickLeave(Boolean No)
+    public void setOnSickLeave(Boolean No)
     {
-        this.OnSickLeave = No;
+        this.onSickLeave = No;
     }
-    public void SetOnSickLeave(Boolean Yes, SickLeave sickleave)
+    public void setOnSickLeave(Boolean Yes, SickLeave sickleave)
     {
-        this.OnSickLeave = Yes;
-        this.sickleave = sickleave;
-    }
-
-    private void SetAmountVaccinations(ArrayList<Vaccination> Vaccinations)
-    {
-        this.AmountVaccinations = Vaccinations.size();
+        this.onSickLeave = Yes;
+        this.sickLeave = sickleave;
     }
 
-    public Integer GetNemberCard()
+    private void setAmountVaccinations(ArrayList<Vaccination> Vaccinations)
     {
-        return this.NumberCard;
+        this.amountVaccinations = Vaccinations.size();
     }
-    public String GetNameDoctor()
+
+    public Integer getNemberCard()
     {
-        return this.NameDoctor;
+        return this.numberCard;
     }
-    public String GetSurNameDoctor()
+    public String getNameDoctor()
     {
-        return this.SurNameDoctor;
+        return this.nameDoctor;
     }
-    public String GetPatronymicDoctor()
+    public String getSurNameDoctor()
     {
-        return this.PatronymicDoctor;
+        return this.surNameDoctor;
     }
-    public String GetDate()
+    public String getPatronymicDoctor()
     {
-        return this.Date;
+        return this.patronymicDoctor;
     }
-    public String GetPlace()
+    public String getDate()
     {
-        return this.Place;
+        return this.date;
     }
-    public String GetRepeatedReception()
+    public String getPlace()
     {
-        if (this.RepeatedReception)
+        return this.place;
+    }
+    public String getRepeatedReception()
+    {
+        return returnString(this.repeatedReception);
+    }
+    public String getDateRepeatedReception()
+    {
+        if(this.repeatedReception)
         {
-            return "Yes";
-        }
-        else
-            return  "No";
-    }
-    public String GetDateRepeatedReception()
-    {
-        if(this.RepeatedReception)
-        {
-            return this.DateRepeatedReception;
+            return this.dateRepeatedReception;
         }
         else
             return "";
 
     }
-    public String GetNameService()
+    public String getNameService()
     {
-        return this.NameService;
+        return this.nameService;
     }
-    public String GetOnVaccination()
+    public String getOnVaccination()
     {
-        if (this.OnVaccination)
+        return returnString(this.onVaccination);
+    }
+    public ArrayList<Vaccination> getVaccinations()
+    {
+        return this.vaccinations;
+    }
+    public Integer getAmountVaccination()
+    {
+        return this.amountVaccinations;
+    }
+    public String getOnSickLeave()
+    {
+        return returnString(this.onSickLeave);
+    }
+    public SickLeave getSickLeave()
+    {
+        return this.sickLeave;
+    }
+
+    private String returnString(Boolean its)
+    {
+        if (its)
         {
             return "Yes";
         }
         else
             return  "No";
-    }
-    public ArrayList<Vaccination> GetVaccinations()
-    {
-        return this.Vaccinations;
-    }
-    public Integer GetAmountVaccination()
-    {
-        return this.AmountVaccinations;
-    }
-    public String GetOnSickLeave()
-    {
-        if (this.OnSickLeave)
-        {
-            return "Yes";
-        }
-        else
-            return  "No";
-    }
-    public SickLeave GetSickLeave()
-    {
-        return this.sickleave;
     }
 }
 

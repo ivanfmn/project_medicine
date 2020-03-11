@@ -2,92 +2,92 @@ package com.example.medicine.Model;
 
 public class Recipe{
 
-    private Integer NumberRecipe;
+    private Integer numberRecipe;
 
-    private String NameDrug;
-    private String StartDate;
-    private String EndDate;
-    private Integer Frequency;
-    private Float Dosage;
-    private Boolean MedicationReminder;
-    private Boolean DrivingCar;
-    private Boolean AlcogolCompatibility;
-    private Boolean CigareteCompatibility;
-    private Integer LevelDiete;
+    private String nameDrug;
+    private String startDate;
+    private String endDate;
+    private Integer frequency;
+    private Float dosage;
+    private Boolean medicationReminder;
+    private Boolean drivingCar;
+    private Boolean alcogolCompatibility;
+    private Boolean cigareteCompatibility;
+    private Integer levelDiete;
 
 
-    public void SetNameDrug(String Name)
+    public void setNameDrug(String Name)
     {
-        this.NameDrug = Name;
-    }
-
-    public void SetStartEndDate(String start, String end)
-    {
-        this.StartDate = start;
-        this.EndDate = end;
+        this.nameDrug = Name;
     }
 
-    public void SetFrequency(Integer Frequency)
+    public void setStartEndDate(String start, String end)
     {
-        this.Frequency = Frequency;
+        this.startDate = start;
+        this.endDate = end;
     }
 
-    public void SetDosage(Float Dosage)
+    public void setFrequency(Integer Frequency)
     {
-        this.Dosage = Dosage;
+        this.frequency = Frequency;
     }
 
-    public void SetReminder(Boolean Reminder)
+    public void setDosage(Float Dosage)
     {
-        this.MedicationReminder = Reminder;
+        this.dosage = Dosage;
     }
 
-    public void SetCompabilityAll(Boolean DrivingCar, Boolean Alcogol, Boolean Cigarete, Integer LevelDiete)
+    public void setReminder(Boolean Reminder)
     {
-        this.DrivingCar = DrivingCar;
-        this.AlcogolCompatibility = Alcogol;
-        this.CigareteCompatibility = Cigarete;
-        this.LevelDiete = LevelDiete;
+        this.medicationReminder = Reminder;
     }
 
-    public String GetNameDrug()
+    public void setCompabilityAll(Boolean DrivingCar, Boolean Alcogol, Boolean Cigarete, Integer LevelDiete)
     {
-        return this.NameDrug;
+        this.drivingCar = DrivingCar;
+        this.alcogolCompatibility = Alcogol;
+        this.cigareteCompatibility = Cigarete;
+        this.levelDiete = LevelDiete;
     }
-    public String GetStartDate()
+
+    public String getNameDrug()
     {
-        return this.StartDate;
+        return this.nameDrug;
     }
-    public String GetEndDate()
+    public String getStartDate()
     {
-        return this.EndDate;
+        return this.startDate;
     }
-    public Integer GetFrequency()
+    public String getEndDate()
     {
-        return this.Frequency;
+        return this.endDate;
     }
-    public Float GetDosage()
+    public Integer getFrequency()
     {
-        return this.Dosage;
+        return this.frequency;
     }
-    public Boolean GetReminder()
+    public Float getDosage()
     {
-        return this.MedicationReminder;
+        return this.dosage;
     }
-    public Boolean GetDrivingCar()
+    public Boolean getReminder()
     {
-        return this.DrivingCar;
+        return this.medicationReminder;
     }
-    public Boolean GetAlcogolCompatibility()
+    public Boolean getDrivingCar()
     {
-        return this.AlcogolCompatibility;
+        return this.drivingCar;
     }
-    public Boolean GetCigareteCompatibility()
+    public Boolean getAlcogolCompatibility()
     {
-        return this.CigareteCompatibility;
+        return this.alcogolCompatibility;
     }
-    public Integer GetLevelDiete()
+    public Boolean getCigareteCompatibility()
     {
-        return this.LevelDiete;
+        return this.cigareteCompatibility;
+    }
+    public Integer getLevelDiete()
+    {
+        return this.levelDiete;
     }
 }

@@ -1,4 +1,4 @@
-package com.example.medicine;
+package com.example.medicine.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,9 +10,8 @@ import android.os.Bundle;
 import com.example.medicine.Adapter.CardAdapter;
 import com.example.medicine.Model.Card;
 import com.example.medicine.Presenter.InformationPresenter;
-import com.example.medicine.View.BigInformations;
-import com.example.medicine.View.CardListInt;
-import com.example.medicine.View.MainActivity;
+import com.example.medicine.R;
+import com.example.medicine.Interface.CardListInt;
 
 import java.util.ArrayList;
 

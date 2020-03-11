@@ -1,14 +1,10 @@
 package com.example.medicine.Presenter;
 
-import android.util.Log;
-
 import com.example.medicine.Model.Card;
 import com.example.medicine.Model.DataImportCard;
-import com.example.medicine.Model.Recipe;
-import com.example.medicine.Model.SickLeave;
-import com.example.medicine.View.BigInformationInt;
-import com.example.medicine.View.CardListInt;
-import com.example.medicine.View.ViewInt;
+import com.example.medicine.Interface.BigInformationInt;
+import com.example.medicine.Interface.CardListInt;
+import com.example.medicine.Interface.ViewInt;
 
 import java.util.ArrayList;
 
@@ -35,7 +31,7 @@ public class InformationPresenter{
 
     public void StartNotice(ViewInt view)
     {
-        view.StartListActivity();
+        view.startListActivity();
     }
 
     public void StartBI(CardListInt view, int ID)
@@ -46,7 +42,7 @@ public class InformationPresenter{
     public void EnterInformation(BigInformationInt view, int ID)
     {
         ArrayList<Card> All_Cards = DBImport.DB_Card();
-        view.SetText(All_Cards.get(ID));
+        view.setText(All_Cards.get(ID));
     }
     public void EnterRV(CardListInt view)
     {
