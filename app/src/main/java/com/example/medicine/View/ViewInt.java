@@ -8,5 +8,6 @@ public interface ViewInt
 {
     void startShortACtivity();
     void ShowNotice(String notice);
+    void StartListActivity();
 
 }

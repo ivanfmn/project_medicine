@@ -13,27 +13,28 @@ public class DataImportCard {
 
     public ArrayList<Card> DB_Card()
     {
+
         ArrayList<Card> s_Cards = new ArrayList<Card>();
-        Card s_Card = new Card();
-        SickLeave s_SickLeave = new SickLeave();
-        ArrayList<Recipe> s_Recipes = new ArrayList<Recipe>();
-        Recipe s_Recipe = new Recipe();
+        for(int i = 0; i < 50; i++)
+        {
+            Card s_Card = new Card();
+            SickLeave s_SickLeave = new SickLeave();
+            ArrayList<Recipe> s_Recipes = new ArrayList<Recipe>();
+            Recipe s_Recipe = new Recipe();
 
-        s_Card.SetFullName("Irina","Fomenko","Vasilevna");
-        s_Card.SetDateCard("15.12.2019");
-        s_Card.SetNameService("Visit");
-        s_Card.SetOnSickLeave(false);
-        s_Card.SetOnVaccination(false);
-        s_Card.SetRepeatedReception(true, "01.01.2021");
+            s_Card.SetFullName("Irina","Fomenko","Vasilevna");
+            s_Card.SetDateCard("15.12.2019");
+            s_Card.SetNameService("Visit");
+            s_Card.SetOnSickLeave(false);
+            s_Card.SetOnVaccination(false);
+            s_Card.SetRepeatedReception(true, "01.01.2021");
 
-        s_Recipe.SetNameDrug("XX 1 XX");
-        s_Recipes.add(s_Recipe);
-        s_Recipe = new Recipe();
-        s_Recipe.SetNameDrug("XX 2 XX");
-        s_Recipes.add(s_Recipe);
+            s_Recipe.SetNameDrug("XX 1 XX");
+            s_Recipes.add(s_Recipe);
 
-        s_SickLeave.SetRecipes(s_Recipes);
-        s_Cards.add(s_Card);
+            s_SickLeave.SetRecipes(s_Recipes);
+            s_Cards.add(s_Card);
+        }
 
         return s_Cards;
 

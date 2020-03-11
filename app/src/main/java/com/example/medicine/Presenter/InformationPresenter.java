@@ -7,6 +7,7 @@ import com.example.medicine.Model.DataImportCard;
 import com.example.medicine.Model.Recipe;
 import com.example.medicine.Model.SickLeave;
 import com.example.medicine.View.BigInformationInt;
+import com.example.medicine.View.CardListInt;
 import com.example.medicine.View.ViewInt;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class InformationPresenter{
     DataImportCard DBImport = new DataImportCard();
     private ViewInt view;
     private BigInformationInt view2;
+    private CardListInt view3;
+
 
     public InformationPresenter() {
     }
@@ -32,13 +35,22 @@ public class InformationPresenter{
 
     public void StartNotice(ViewInt view)
     {
-        view.startShortACtivity();
+        view.StartListActivity();
     }
 
-    public void EnterInformation(BigInformationInt view2)
+    public void StartBI(CardListInt view, int ID)
     {
-        ArrayList<Card> All_Card = DBImport.DB_Card();
+        view.startBigInformation(ID);
+    }
 
-        view2.SetText(All_Card.get(0));
+    public void EnterInformation(BigInformationInt view, int ID)
+    {
+        ArrayList<Card> All_Cards = DBImport.DB_Card();
+        view.SetText(All_Cards.get(ID));
+    }
+    public void EnterRV(CardListInt view)
+    {
+        ArrayList<Card> All_Cards = DBImport.DB_Card();
+        view.initList(All_Cards);
     }
 }

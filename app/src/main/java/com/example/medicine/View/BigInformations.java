@@ -22,7 +22,8 @@ public class BigInformations extends AppCompatActivity implements BigInformation
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_informations);
         InfPres.attachView2(Contract);
-        InfPres.EnterInformation(this);
+        Bundle arguments = getIntent().getExtras();
+        InfPres.EnterInformation(this, arguments.getInt("idCard"));
     }
 
 

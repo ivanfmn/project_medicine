@@ -1,6 +1,7 @@
 package com.example.medicine.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.medicine.Adapter.CardAdapter;
+import com.example.medicine.CardList;
 import com.example.medicine.Model.Card;
 import com.example.medicine.Model.Vaccination;
 import com.example.medicine.Model.Recipe;
@@ -52,6 +55,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.d("ShowNotice", "Show");
         Toast toast = Toast.makeText(this, notice, Toast.LENGTH_LONG);
         toast.show();
+    }
+    public void StartListActivity()
+    {
+        Intent intent = new Intent(MainActivity.this, CardList.class);
+        startActivity(intent);
     }
 
 }
