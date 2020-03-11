@@ -29,7 +29,7 @@ public class InformationPresenter{
         this.view2 = view2;
     }
 
-    public void StartNotice(ViewInt view)
+    public void StartListActivity(ViewInt view)
     {
         view.startListActivity();
     }
