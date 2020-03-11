@@ -33,11 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.button:
-                InfPres.StartNotice(view);
+                InfPres.StartNotice(this);
         }
     }
 
-    public void startShortACtivity()
+    public void startShortActivity()
     {
         Intent intent = new Intent(MainActivity.this, BigInformations.class);
         startActivity(intent);

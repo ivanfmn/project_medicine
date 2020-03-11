@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface ViewInt
 {
-    void startShortACtivity();
+    void startShortActivity();
     void showNotice(String notice);
     void startListActivity();
 
