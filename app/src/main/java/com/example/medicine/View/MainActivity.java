@@ -16,15 +16,14 @@ import com.example.medicine.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewInt {
 
     private InformationPresenter InfPres = new InformationPresenter();
-    private ViewInt view;
-    private Button myButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        InfPres.attachView(view);
+        InfPres.attachedView(this);
+        Button myButton;
         myButton = (Button) findViewById(R.id.button);
         myButton.setOnClickListener(this);
     }
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.button:
-                InfPres.StartListActivity(this);
+                InfPres.startListActivity();
         }
     }
 

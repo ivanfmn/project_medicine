@@ -12,16 +12,15 @@ import com.example.medicine.R;
 
 public class BigInformations extends AppCompatActivity implements BigInformationInt {
 
-    private BigInformationInt Contract;
     private InformationPresenter InfPres = new InformationPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_informations);
-        InfPres.attachView2(Contract);
+        InfPres.attachedView(this);
         Bundle arguments = getIntent().getExtras();
-        InfPres.EnterInformation(this, arguments.getInt("idCard"));
+        InfPres.enterInformation( arguments.getInt("idCard"));
     }
 
 

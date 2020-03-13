@@ -28,6 +28,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>
     public CardAdapter(ArrayList<Card> cards, CardListInt view){
         this.cards = cards;
         this.view = view;
+        InfPres.attachedView(this.view);
     }
 
     @NonNull
@@ -46,7 +47,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>
 
             @Override
             public void onClick(View v) {
-                InfPres.StartBI(view, position);
+                InfPres.startBigInformatio(position);
                 Log.d("XXX",""+position);
             }
         });

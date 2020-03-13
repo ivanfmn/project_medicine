@@ -23,7 +23,8 @@ public class CardList extends AppCompatActivity implements CardListInt {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_list);
-        InfPres.EnterRV(this);
+        InfPres.attachedView(this);
+        InfPres.enterRV();
     }
 
     public void initList(ArrayList<Card> cards)
