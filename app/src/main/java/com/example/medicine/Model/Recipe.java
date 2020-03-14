@@ -3,7 +3,6 @@ package com.example.medicine.Model;
 public class Recipe{
 
     private Integer numberRecipe;
-
     private String nameDrug;
     private String startDate;
     private String endDate;

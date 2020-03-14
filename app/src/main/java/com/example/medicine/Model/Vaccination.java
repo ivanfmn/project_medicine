@@ -5,22 +5,19 @@ public class Vaccination {
     private String nameVaccination;
     private String dateEnter;
 
-    public void setNameVaccination(String nameVaccination)
-    {
+    public void setNameVaccination(String nameVaccination) {
         this.nameVaccination = nameVaccination;
     }
 
-    public void setDateEnter(String dateEnter)
-    {
+    public void setDateEnter(String dateEnter) {
         this.dateEnter = dateEnter;
     }
 
-    public String getNameVaccination()
-    {
+    public String getNameVaccination() {
         return this.nameVaccination;
     }
-    public String getDateEnter()
-    {
+
+    public String getDateEnter() {
         return this.dateEnter;
     }
 }

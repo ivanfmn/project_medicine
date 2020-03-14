@@ -5,33 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.example.medicine.Interface.BigInformationInt;
 import com.example.medicine.Model.Card;
-import com.example.medicine.Presenter.InformationPresenter;
+import com.example.medicine.Presenter.MoreInformationPresenter;
 import com.example.medicine.R;
 
-public class BigInformations extends AppCompatActivity implements BigInformationInt {
+public class MoreInformationView extends AppCompatActivity implements com.example.medicine.Interface.MoreInformationView {
 
-    private InformationPresenter InfPres = new InformationPresenter();
+    private MoreInformationPresenter moreInformationPresenter = new MoreInformationPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_informations);
-        InfPres.attachedView(this);
         Bundle arguments = getIntent().getExtras();
-        InfPres.enterInformation( arguments.getInt("idCard"));
+        moreInformationPresenter.onEnterInformation( arguments.getInt("idCard"));
     }
 
 
     public void setText(Card s_Card)
     {
-        TextView tv_service = (TextView) findViewById(R.id.TextService);
-        TextView tv_namedoctor = (TextView) findViewById(R.id.NameDoctor);
-        TextView tv_date = (TextView) findViewById(R.id.EditServiceDate);
-        TextView tv_SickLeave = (TextView) findViewById(R.id.EditSeakLeave);
-        TextView tv_Vaccination = (TextView) findViewById(R.id.EditVaccinations);
-        TextView tv_RepReception = (TextView) findViewById(R.id.EditRepReception);
+        TextView tv_service = findViewById(R.id.TextService);
+        TextView tv_namedoctor = findViewById(R.id.NameDoctor);
+        TextView tv_date = findViewById(R.id.EditServiceDate);
+        TextView tv_SickLeave = findViewById(R.id.EditSeakLeave);
+        TextView tv_Vaccination = findViewById(R.id.EditVaccinations);
+        TextView tv_RepReception = findViewById(R.id.EditRepReception);
 
 
         tv_service.setText(s_Card.getNameService());

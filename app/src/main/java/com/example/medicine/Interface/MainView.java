@@ -4,7 +4,7 @@ import com.example.medicine.Model.Card;
 
 import java.util.ArrayList;
 
-public interface ViewInt
+public interface MainView
 {
     void startShortActivity();
     void showNotice(String notice);

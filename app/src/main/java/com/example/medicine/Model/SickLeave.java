@@ -1,6 +1,7 @@
 package com.example.medicine.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SickLeave{
 
@@ -9,7 +10,7 @@ public class SickLeave{
     private String endSickLeave;
     private Integer amountRecipes;
     private Boolean goToWork;
-    private ArrayList<Recipe> recipes;
+    private List<Recipe> recipes;
 
     public SickLeave init()
     {
@@ -62,7 +63,7 @@ public class SickLeave{
         return this.goToWork;
     }
 
-    public ArrayList<Recipe> getRecipes()
+    public List<Recipe> getRecipes()
     {
         return this.recipes;
     }

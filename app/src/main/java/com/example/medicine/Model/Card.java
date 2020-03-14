@@ -1,6 +1,7 @@
 package com.example.medicine.Model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Card {
 
@@ -15,138 +16,131 @@ public class Card {
     private String nameService;
     private Boolean onVaccination;
     private Integer amountVaccinations;
-    private ArrayList<Vaccination> vaccinations;
+    private List<Vaccination> vaccinations;
     private Boolean onSickLeave;
     private SickLeave sickLeave;
 
 
-    public Card init()
-    {
+    public Card init(){
         return new Card();
     }
-    public void setNumberCard(Integer Number)
-    {
+
+    public void setNumberCard(Integer Number){
         this.numberCard = Number;
     }
-    public void setFullName(String Name, String SurName, String PatronymicDoctor)
-    {
+
+    public void setFullName(String Name, String SurName, String PatronymicDoctor){
         this.nameDoctor = Name;
         this.surNameDoctor = SurName;
         this.patronymicDoctor = PatronymicDoctor;
     }
-    public void setNameService(String NameService)
-    {
+
+    public void setNameService(String NameService){
         this.nameService = NameService;
     }
-    public void setDateCard(String Date)
-    {
+
+    public void setDateCard(String Date){
         this.date = Date;
     }
-    public void setPlace(String Place)
-    {
+
+    public void setPlace(String Place){
         this.place = Place;
     }
-    public void setRepeatedReception(Boolean No)
-    {
+
+    public void setRepeatedReception(Boolean No){
         this.repeatedReception = No;
     }
-    public void setRepeatedReception(Boolean Yes, String DateRepeatedReception)
-    {
+
+    public void setRepeatedReception(Boolean Yes, String DateRepeatedReception){
         this.repeatedReception = Yes;
         this.dateRepeatedReception = DateRepeatedReception;
     }
-    public void setOnVaccination(Boolean No)
-    {
+
+    public void setOnVaccination(Boolean No){
         this.onVaccination = No;
     }
-    public void setOnVaccination(Boolean Yes, ArrayList<Vaccination> Vaccinations)
-    {
+
+    public void setOnVaccination(Boolean Yes, ArrayList<Vaccination> Vaccinations){
         this.onVaccination = Yes;
         this.vaccinations = Vaccinations;
         this.setAmountVaccinations(Vaccinations);
     }
-    public void setOnSickLeave(Boolean No)
-    {
+
+    public void setOnSickLeave(Boolean No){
         this.onSickLeave = No;
     }
-    public void setOnSickLeave(Boolean Yes, SickLeave sickleave)
-    {
+
+    public void setOnSickLeave(Boolean Yes, SickLeave sickleave){
         this.onSickLeave = Yes;
         this.sickLeave = sickleave;
     }
 
-    private void setAmountVaccinations(ArrayList<Vaccination> Vaccinations)
-    {
+    private void setAmountVaccinations(ArrayList<Vaccination> Vaccinations){
         this.amountVaccinations = Vaccinations.size();
     }
 
-    public Integer getNemberCard()
-    {
+    public Integer getNemberCard(){
         return this.numberCard;
     }
-    public String getNameDoctor()
-    {
+
+    public String getNameDoctor(){
         return this.nameDoctor;
     }
-    public String getSurNameDoctor()
-    {
+
+    public String getSurNameDoctor(){
         return this.surNameDoctor;
     }
-    public String getPatronymicDoctor()
-    {
+
+    public String getPatronymicDoctor(){
         return this.patronymicDoctor;
     }
-    public String getDate()
-    {
+
+    public String getDate(){
         return this.date;
     }
-    public String getPlace()
-    {
+
+    public String getPlace(){
         return this.place;
     }
-    public String getRepeatedReception()
-    {
+
+    public String getRepeatedReception(){
         return returnString(this.repeatedReception);
     }
-    public String getDateRepeatedReception()
-    {
-        if(this.repeatedReception)
-        {
+
+    public String getDateRepeatedReception(){
+        if(this.repeatedReception){
             return this.dateRepeatedReception;
         }
         else
             return "";
-
     }
-    public String getNameService()
-    {
+
+    public String getNameService(){
         return this.nameService;
     }
-    public String getOnVaccination()
-    {
+
+    public String getOnVaccination(){
         return returnString(this.onVaccination);
     }
-    public ArrayList<Vaccination> getVaccinations()
-    {
+
+    public List<Vaccination> getVaccinations(){
         return this.vaccinations;
     }
-    public Integer getAmountVaccination()
-    {
+
+    public Integer getAmountVaccination(){
         return this.amountVaccinations;
     }
-    public String getOnSickLeave()
-    {
+
+    public String getOnSickLeave(){
         return returnString(this.onSickLeave);
     }
-    public SickLeave getSickLeave()
-    {
+
+    public SickLeave getSickLeave(){
         return this.sickLeave;
     }
 
-    private String returnString(Boolean its)
-    {
-        if (its)
-        {
+    private String returnString(Boolean its){
+        if (its){
             return "Yes";
         }
         else

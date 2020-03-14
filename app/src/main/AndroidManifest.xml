@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".View.CardList"/>
-        <activity android:name=".View.BigInformations"/>
-        <activity android:name=".View.MainActivity">
+        <activity android:name=".View.CardsListView"/>
+        <activity android:name=".View.MoreInformationView"/>
+        <activity android:name=".View.MainView">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,9 +1,9 @@
 package com.example.medicine.Adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,46 +11,49 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medicine.Model.Card;
-import com.example.medicine.Presenter.InformationPresenter;
+import com.example.medicine.Presenter.CardsListPresenter;
 import com.example.medicine.R;
-import com.example.medicine.Interface.CardListInt;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder>
-{
+public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private InformationPresenter InfPres = new InformationPresenter();
+    private CardsListPresenter cardsListPresenter;
+    private List<Card> cards;
 
-    private ArrayList<Card> cards;
-    private CardListInt view;
-
-    public CardAdapter(ArrayList<Card> cards, CardListInt view){
+    public void setCardAdapter(List<Card> cards, CardsListPresenter cardsListPresenter){
         this.cards = cards;
-        this.view = view;
-        InfPres.attachedView(this.view);
+        this.cardsListPresenter = cardsListPresenter;
+    }
+    public void setCardsListInAdapter(List<Card> cards){
+        this.cards = cards;
     }
 
     @NonNull
     @Override
     public CardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
-        CardAdapter.ViewHolder pvh = new CardAdapter.ViewHolder(v);
-        return pvh;
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.ViewHolder holder, final int position) {
-        holder.nameDoctor.setText(this.cards.get(position).getNameDoctor());
-        holder.nameService.setText(this.cards.get(position).getNameService());
-        holder.EnterBigInformation.setOnClickListener(new View.OnClickListener(){
-
+        holder.nameDoctor.setText(cards.get(position).getNameDoctor());
+        holder.nameService.setText(cards.get(position).getNameService());
+        holder.EnterBigInformation.setOnClickListener(
+                new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                InfPres.startBigInformatio(position);
-                Log.d("XXX",""+position);
+                cardsListPresenter.onBigInformation(position);
             }
         });
+        setFadeAnimation(holder.itemView);
+    }
+
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(1000);
+        view.startAnimation(anim);
     }
 
     @Override

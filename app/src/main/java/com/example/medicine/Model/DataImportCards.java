@@ -7,16 +7,13 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class DataImportCard {
+public class DataImportCards {
 
 
 
-    public ArrayList<Card> DB_Card()
-    {
-
+    public ArrayList<Card> getBaseCardTest() {
         ArrayList<Card> s_Cards = new ArrayList<Card>();
-        for(int i = 0; i < 50; i++)
-        {
+        for(int i = 0; i < 50; i++){
             Card s_Card = new Card();
             SickLeave s_SickLeave = new SickLeave();
             ArrayList<Recipe> s_Recipes = new ArrayList<Recipe>();
@@ -32,7 +29,6 @@ public class DataImportCard {
             s_SickLeave.setRecipes(s_Recipes);
             s_Cards.add(s_Card);
         }
-
         return s_Cards;
     }
 
@@ -61,8 +57,6 @@ public class DataImportCard {
         }
 
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        }
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
     }
 }
