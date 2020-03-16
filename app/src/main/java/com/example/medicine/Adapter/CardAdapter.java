@@ -11,19 +11,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medicine.Model.Card;
-import com.example.medicine.Presenter.CardsListPresenter;
+import com.example.medicine.Presenter.MainPagePresenter;
 import com.example.medicine.R;
 
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private CardsListPresenter cardsListPresenter;
+    private MainPagePresenter mainPagePresenter;
     private List<Card> cards;
 
-    public void setCardAdapter(List<Card> cards, CardsListPresenter cardsListPresenter){
+    public void setCardAdapter(List<Card> cards, MainPagePresenter cardsListPresenter){
         this.cards = cards;
-        this.cardsListPresenter = cardsListPresenter;
+        this.mainPagePresenter = cardsListPresenter;
     }
     public void setCardsListInAdapter(List<Card> cards){
         this.cards = cards;
@@ -42,32 +42,26 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.nameService.setText(cards.get(position).getNameService());
         holder.EnterBigInformation.setOnClickListener(
                 new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                cardsListPresenter.onBigInformation(position);
-            }
-        });
-        setFadeAnimation(holder.itemView);
+                    @Override
+                    public void onClick(View v) {
+                        mainPagePresenter.onBigInformationPage(position);
+                    }
+                });
     }
 
-    private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(1000);
-        view.startAnimation(anim);
-    }
 
     @Override
     public int getItemCount() {
         return this.cards.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder{
         private TextView nameService;
         private TextView nameDoctor;
         private Button EnterBigInformation;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.nameService = (TextView)itemView.findViewById(R.id.Service);
             this.nameDoctor = (TextView)itemView.findViewById(R.id.Name);

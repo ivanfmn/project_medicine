@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
-    android:layout_width="410dp"
+    android:layout_width="match_parent"
     android:layout_height="210dp"
     android:background="@color/cardview_dark_background">
 
@@ -13,37 +13,57 @@
         android:id="@+id/card_view"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:layout_width="390dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         app:cardCornerRadius="6dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="10dp">
-        <TextView
-            android:id="@+id/Service"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="XXX"
-            android:textSize="16pt"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            />
-        <TextView
-            android:id="@+id/Name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="XXXxxXXX"
-            android:textSize="12pt"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="125dp"
-            />
-        <Button
-            android:id="@+id/Button"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="310dp"
-            android:layout_marginTop="115dp"
-            android:text="***"
-            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/Service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="37dp"
+                android:layout_marginLeft="37dp"
+                android:layout_marginTop="27dp"
+                android:text="XXX"
+                android:textSize="16pt" />
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="125dp"
+                android:layout_marginBottom="25dp"
+                android:text="XXXxxXXX"
+                android:textSize="12pt" />
+
+            <Button
+                android:id="@+id/Button"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="115dp"
+                android:layout_marginEnd="42dp"
+                android:layout_marginRight="42dp"
+                android:layout_marginBottom="28dp"
+                android:text="***" />
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.example.medicine.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -18,25 +19,27 @@ public class MoreInformationView extends AppCompatActivity implements com.exampl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_informations);
         Bundle arguments = getIntent().getExtras();
+        assert arguments != null;
         moreInformationPresenter.onEnterInformation( arguments.getInt("idCard"));
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void setText(Card s_Card)
     {
-        TextView tv_service = findViewById(R.id.TextService);
-        TextView tv_namedoctor = findViewById(R.id.NameDoctor);
-        TextView tv_date = findViewById(R.id.EditServiceDate);
-        TextView tv_SickLeave = findViewById(R.id.EditSeakLeave);
-        TextView tv_Vaccination = findViewById(R.id.EditVaccinations);
-        TextView tv_RepReception = findViewById(R.id.EditRepReception);
+        TextView service = findViewById(R.id.TextService);
+        TextView nameDoctor = findViewById(R.id.NameDoctor);
+        TextView date = findViewById(R.id.EditServiceDate);
+        TextView sickLeave = findViewById(R.id.EditSeakLeave);
+        TextView vaccination = findViewById(R.id.EditVaccinations);
+        TextView repeatReception = findViewById(R.id.EditRepReception);
 
 
-        tv_service.setText(s_Card.getNameService());
-        tv_namedoctor.setText(s_Card.getSurNameDoctor() + " " + s_Card.getNameDoctor().substring(0,1) + ". " + s_Card.getPatronymicDoctor().substring(0,1)+ ".");
-        tv_date.setText(s_Card.getDate());
-        tv_SickLeave.setText(s_Card.getOnSickLeave());
-        tv_Vaccination.setText(s_Card.getOnVaccination());
-        tv_RepReception.setText(s_Card.getRepeatedReception() + " " + s_Card.getDateRepeatedReception());
+        service.setText(s_Card.getNameService());
+        nameDoctor.setText(s_Card.getSurNameDoctor() + " " + s_Card.getNameDoctor().substring(0,1) + ". " + s_Card.getPatronymicDoctor().substring(0,1)+ ".");
+        date.setText(s_Card.getDate());
+        sickLeave.setText(s_Card.getOnSickLeave());
+        vaccination.setText(s_Card.getOnVaccination());
+        repeatReception.setText(s_Card.getRepeatedReception() + " " + s_Card.getDateRepeatedReception());
     }
 }
