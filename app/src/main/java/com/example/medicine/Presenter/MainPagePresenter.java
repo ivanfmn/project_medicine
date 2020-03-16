@@ -2,6 +2,7 @@ package com.example.medicine.Presenter;
 
 import com.example.medicine.Adapter.CardAdapter;
 import com.example.medicine.Interface.MainPageView;
+import com.example.medicine.Model.Card;
 import com.example.medicine.Model.DataImportCards;
 
 public class MainPagePresenter {
@@ -14,13 +15,12 @@ public class MainPagePresenter {
     }
 
     public void onRecycleView() {
-        final CardAdapter cardAdapter = new CardAdapter();
-        cardAdapter.setCardAdapter(dataImportCards.getBaseCardTest(), this);
-        mainPageView.initialisationCardsList(cardAdapter);
+
+        mainPageView.initialisationCardsList(dataImportCards.getBaseCardTest());
     }
 
-    public void onBigInformationPage(int idCard)
+    public void onBigInformationPage(Card card)
     {
-        mainPageView.startMoreInformationPage(idCard);
+        mainPageView.startMoreInformationPage(card);
     }
 }

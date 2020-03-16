@@ -1,8 +1,11 @@
 package com.example.medicine.Interface;
 
-import com.example.medicine.Adapter.CardAdapter;
+import com.example.medicine.Model.Card;
+
+import java.util.List;
 
 public interface MainPageView {
-    void initialisationCardsList(CardAdapter cardAdapter);
-    void startMoreInformationPage(int idCard);
+    void initialisationCardsList(List<Card> cards);
+    void startMoreInformationPage(Card card);
+    void onMoreInformationPresenter(Card card);
 }

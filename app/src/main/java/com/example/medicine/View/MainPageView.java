@@ -11,8 +11,11 @@ import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 
 import com.example.medicine.Adapter.CardAdapter;
+import com.example.medicine.Model.Card;
 import com.example.medicine.Presenter.MainPagePresenter;
 import com.example.medicine.R;
+
+import java.util.List;
 
 public class MainPageView extends AppCompatActivity implements com.example.medicine.Interface.MainPageView {
 
@@ -35,20 +38,28 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
                         scrollView.setScrollY(1450); return false; } });
     }
 
-    public void initialisationCardsList(CardAdapter cardAdapter) {
+    public void initialisationCardsList(List<Card> cards) {
         recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
+        final CardAdapter cardAdapter = new CardAdapter();
+        cardAdapter.setCardAdapter(cards, MainPageView.this);
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setClickable(false);
         recyclerView.setNestedScrollingEnabled(false);
 
     }
-    public void startMoreInformationPage(int idCard)
+
+    public void onMoreInformationPresenter(Card card)
+    {
+        mainPagePresenter.onBigInformationPage(card);
+    }
+
+    public void startMoreInformationPage(Card card)
     {
         Intent intent = new Intent(MainPageView.this, MoreInformationView.class);
-        intent.putExtra("idCard", idCard);
+        intent.putExtra("card", card);
         startActivity(intent);
     }
 }

@@ -6,32 +6,87 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataImportCards {
 
 
-
-    public ArrayList<Card> getBaseCardTest() {
-        ArrayList<Card> s_Cards = new ArrayList<Card>();
+    public List<Card> getBaseCardTest() {
+        List<Card> cards = new ArrayList<Card>();
         for(int i = 0; i < 50; i++){
-            Card s_Card = new Card();
-            SickLeave s_SickLeave = new SickLeave();
-            ArrayList<Recipe> s_Recipes = new ArrayList<Recipe>();
-            Recipe s_Recipe = new Recipe();
-            s_Card.setFullName("Irina","Fomenko","Vasilevna");
-            s_Card.setDateCard("15.12.2019");
-            s_Card.setNameService("Visit " + i);
-            s_Card.setOnSickLeave(false);
-            s_Card.setOnVaccination(false);
-            s_Card.setRepeatedReception(true, "01.01.2021");
-            s_Recipe.setNameDrug("XX 1 XX");
-            s_Recipes.add(s_Recipe);
-            s_SickLeave.setRecipes(s_Recipes);
-            s_Cards.add(s_Card);
+            cards.add(fillingCard());
         }
-        return s_Cards;
+        return cards;
     }
 
+    private Card fillingCard() {
+        Card card = new Card();
+
+        card.setFullName("Irina","Fomenko","Vasilevna");
+        card.setDateCard("15.12.2019");
+        card.setNameService("Visit ");
+        card.setPlace("Earth, Russia, Rostov region, Taganrog, Aleksandrovskaya 30, kv 424 xxxxxxxxxxxxxxxxxxxxxxxxx");
+        card.setRepeatedReception(true, "01.01.2021");
+
+        card.setOnSickLeave(true);
+        if(card.getOnSickLeave()) {
+            card.setOnSickLeave(true, fillSickLeave());
+        }
+
+        card.setOnVaccination(true);
+        if(card.getOnVaccination()) {
+            card.setOnVaccination(true, fillVaccinationsList());
+        }
+        return card;
+    }
+
+    private SickLeave fillSickLeave() {
+        SickLeave sickLeave = new SickLeave();
+        //
+        sickLeave.setGoToWork(false);
+        sickLeave.setDiagnosis("Bronhit");
+        sickLeave.setStartEndSickLeave("12/12/2015","25/12/2015");
+        sickLeave.setRecipes(fillRecipesList());
+
+        return sickLeave;
+    }
+
+    private List<Recipe> fillRecipesList() {
+        List<Recipe> recipes = new ArrayList<>();
+        //
+        for(int i = 0; i < 5; i++) {
+            recipes.add(fillRecipe());
+        }
+        return recipes;
+    }
+
+    private Recipe fillRecipe() {
+        Recipe recipe = new Recipe();
+        recipe.setNameDrug("Paracetamol");
+        recipe.setDosage(150f);
+        recipe.setFrequency(2);
+        recipe.setStartEndDate("01.01.2005", "05.01.2005");
+        recipe.setReminder(false);
+        recipe.setCompabilityAll(true,false,true,2);
+        return recipe;
+    }
+
+    private List<Vaccination> fillVaccinationsList()
+    {
+        List<Vaccination> vaccinations = new ArrayList<>();
+        //
+        for(int i = 0; i < 5; i++) {
+            vaccinations.add(fillVaccination());
+        }
+        return vaccinations;
+    }
+
+    private Vaccination fillVaccination() {
+        Vaccination vaccination = new Vaccination();
+        vaccination.setDateEnter("25.01.2009");
+        vaccination.setNameVaccination("Check");
+        return vaccination;
+    }
 
     class DBHelper extends SQLiteOpenHelper {
 

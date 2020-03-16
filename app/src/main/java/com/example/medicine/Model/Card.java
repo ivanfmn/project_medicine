@@ -1,9 +1,10 @@
 package com.example.medicine.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Card {
+public class Card implements Serializable {
 
     private Integer numberCard;
     private String nameDoctor;
@@ -60,7 +61,7 @@ public class Card {
         this.onVaccination = No;
     }
 
-    public void setOnVaccination(Boolean Yes, ArrayList<Vaccination> Vaccinations){
+    public void setOnVaccination(Boolean Yes, List<Vaccination> Vaccinations){
         this.onVaccination = Yes;
         this.vaccinations = Vaccinations;
         this.setAmountVaccinations(Vaccinations);
@@ -75,7 +76,7 @@ public class Card {
         this.sickLeave = sickleave;
     }
 
-    private void setAmountVaccinations(ArrayList<Vaccination> Vaccinations){
+    private void setAmountVaccinations(List<Vaccination> Vaccinations){
         this.amountVaccinations = Vaccinations.size();
     }
 
@@ -103,24 +104,20 @@ public class Card {
         return this.place;
     }
 
-    public String getRepeatedReception(){
-        return returnString(this.repeatedReception);
+    public Boolean getRepeatedReception(){
+        return repeatedReception;
     }
 
     public String getDateRepeatedReception(){
-        if(this.repeatedReception){
-            return this.dateRepeatedReception;
-        }
-        else
-            return "";
+        return this.dateRepeatedReception;
     }
 
     public String getNameService(){
         return this.nameService;
     }
 
-    public String getOnVaccination(){
-        return returnString(this.onVaccination);
+    public Boolean getOnVaccination(){
+        return onVaccination;
     }
 
     public List<Vaccination> getVaccinations(){
@@ -131,20 +128,12 @@ public class Card {
         return this.amountVaccinations;
     }
 
-    public String getOnSickLeave(){
-        return returnString(this.onSickLeave);
+    public Boolean getOnSickLeave(){
+        return onSickLeave;
     }
 
     public SickLeave getSickLeave(){
         return this.sickLeave;
-    }
-
-    private String returnString(Boolean its){
-        if (its){
-            return "Yes";
-        }
-        else
-            return  "No";
     }
 }
 

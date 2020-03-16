@@ -1,6 +1,8 @@
 package com.example.medicine.Model;
 
-public class Recipe{
+import java.io.Serializable;
+
+public class Recipe implements Serializable {
 
     private Integer numberRecipe;
     private String nameDrug;

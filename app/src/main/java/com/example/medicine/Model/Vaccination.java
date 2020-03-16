@@ -1,6 +1,8 @@
 package com.example.medicine.Model;
 
-public class Vaccination {
+import java.io.Serializable;
+
+public class Vaccination implements Serializable {
 
     private String nameVaccination;
     private String dateEnter;

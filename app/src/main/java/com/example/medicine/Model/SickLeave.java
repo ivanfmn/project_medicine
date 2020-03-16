@@ -1,9 +1,10 @@
 package com.example.medicine.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SickLeave{
+public class SickLeave implements Serializable {
 
     private String diagnosis;
     private String startSickLeave;
@@ -25,7 +26,7 @@ public class SickLeave{
         this.startSickLeave = Start;
         this.endSickLeave = End;
     }
-    private void setAmountRecipe(ArrayList<Recipe> Recipes)
+    private void setAmountRecipe(List<Recipe> Recipes)
     {
         this.amountRecipes = Recipes.size();
     }
@@ -33,7 +34,7 @@ public class SickLeave{
     {
         this.goToWork = YON;
     }
-    public void setRecipes(ArrayList<Recipe> Recipes)
+    public void setRecipes(List<Recipe> Recipes)
     {
         this.recipes = Recipes;
         this.setAmountRecipe(Recipes);

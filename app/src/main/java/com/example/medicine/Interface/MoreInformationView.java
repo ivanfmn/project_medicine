@@ -4,5 +4,5 @@ import com.example.medicine.Model.Card;
 
 public interface MoreInformationView {
 
-    void setText(Card s_Card);
+    void setText(Card card);
 }

@@ -5,6 +5,7 @@ import com.example.medicine.Model.DataImportCards;
 import com.example.medicine.Interface.MoreInformationView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MoreInformationPresenter {
 
@@ -15,8 +16,7 @@ public class MoreInformationPresenter {
         this.moreInformationView = moreInformationView;
     }
 
-    public void onEnterInformation(int ID) {
-        ArrayList<Card> allCards = DBImport.getBaseCardTest();
-        this.moreInformationView.setText(allCards.get(ID));
+    public void onEnterInformation(Card card) {
+        this.moreInformationView.setText(card);
     }
 }

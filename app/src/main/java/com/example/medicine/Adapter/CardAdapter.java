@@ -3,13 +3,13 @@ package com.example.medicine.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.medicine.Interface.MainPageView;
 import com.example.medicine.Model.Card;
 import com.example.medicine.Presenter.MainPagePresenter;
 import com.example.medicine.R;
@@ -18,12 +18,12 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private MainPagePresenter mainPagePresenter;
+    private MainPageView mainPageView;
     private List<Card> cards;
 
-    public void setCardAdapter(List<Card> cards, MainPagePresenter cardsListPresenter){
+    public void setCardAdapter(List<Card> cards, MainPageView mainPageView){
         this.cards = cards;
-        this.mainPagePresenter = cardsListPresenter;
+        this.mainPageView = mainPageView;
     }
     public void setCardsListInAdapter(List<Card> cards){
         this.cards = cards;
@@ -32,19 +32,20 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @NonNull
     @Override
     public CardAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
-        return new ViewHolder(v);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.ViewHolder holder, final int position) {
-        holder.nameDoctor.setText(cards.get(position).getNameDoctor());
-        holder.nameService.setText(cards.get(position).getNameService());
+        final Card card = cards.get(position);
+        holder.nameDoctor.setText(card.getNameDoctor());
+        holder.nameService.setText(card.getNameService());
         holder.EnterBigInformation.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        mainPagePresenter.onBigInformationPage(position);
+                        mainPageView.onMoreInformationPresenter(card);
                     }
                 });
     }
