@@ -1,10 +1,10 @@
-package com.example.medicine.Interface;
+package com.example.medicine.view;
 
-import com.example.medicine.Model.Card;
+import com.example.medicine.model.Card;
 
 import java.util.List;
 
-public interface MainPageView {
+public interface MainPageActivity {
     void showCardsList(List<Card> cards);
     void startMoreInformationPage(Card card);
     void onMoreInformationPresenter(Card card);

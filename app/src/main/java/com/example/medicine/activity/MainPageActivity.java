@@ -1,4 +1,4 @@
-package com.example.medicine.View;
+package com.example.medicine.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,18 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.ScrollView;
 
-import com.example.medicine.Adapter.CardAdapter;
-import com.example.medicine.Model.Card;
-import com.example.medicine.Presenter.MainPagePresenter;
+import com.example.medicine.adapter.CardAdapter;
+import com.example.medicine.model.Card;
+import com.example.medicine.presenter.MainPagePresenter;
 import com.example.medicine.R;
 
 import java.util.List;
 
-public class MainPageView extends AppCompatActivity implements com.example.medicine.Interface.MainPageView {
+public class MainPageActivity extends AppCompatActivity implements com.example.medicine.view.MainPageActivity {
 
     private MainPagePresenter mainPagePresenter;
     private RecyclerView recyclerView;
@@ -47,7 +46,7 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
         linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
         final CardAdapter cardAdapter = new CardAdapter();
-        cardAdapter.setCardAdapter(cards, MainPageView.this);
+        cardAdapter.setCardAdapter(cards, MainPageActivity.this);
         recyclerView.setAdapter(cardAdapter);
         recyclerView.setClickable(false);
         recyclerView.setNestedScrollingEnabled(false);
@@ -59,7 +58,7 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
     }
 
     public void startMoreInformationPage(Card card) {
-        Intent intent = new Intent(MainPageView.this, MoreInformationView.class);
+        Intent intent = new Intent(MainPageActivity.this, DetailedInformationActivity.class);
         intent.putExtra("card", card);
         startActivity(intent);
     }

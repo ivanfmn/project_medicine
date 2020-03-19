@@ -1,4 +1,4 @@
-package com.example.medicine.Model;
+package com.example.medicine.model;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

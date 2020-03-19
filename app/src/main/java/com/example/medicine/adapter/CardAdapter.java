@@ -1,4 +1,4 @@
-package com.example.medicine.Adapter;
+package com.example.medicine.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,20 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.medicine.Interface.MainPageView;
-import com.example.medicine.Model.Card;
+import com.example.medicine.view.MainPageActivity;
+import com.example.medicine.model.Card;
 import com.example.medicine.R;
 
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private MainPageView mainPageView;
+    private MainPageActivity mainPageActivity;
     private List<Card> cards;
 
-    public void setCardAdapter(List<Card> cards, MainPageView mainPageView) {
+    public void setCardAdapter(List<Card> cards, MainPageActivity mainPageActivity) {
         this.cards = cards;
-        this.mainPageView = mainPageView;
+        this.mainPageActivity = mainPageActivity;
     }
 
     public void setCardsListInAdapter(List<Card> cards) {
@@ -45,7 +45,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mainPageView.onMoreInformationPresenter(card);
+                        mainPageActivity.onMoreInformationPresenter(card);
                     }
                 });
     }

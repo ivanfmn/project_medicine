@@ -1,7 +1,6 @@
-package com.example.medicine.Model;
+package com.example.medicine.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SickLeave implements Serializable {
