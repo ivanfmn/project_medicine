@@ -23,7 +23,6 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +32,16 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
         final ScrollView scrollView = findViewById(R.id.main_page_vertical_scroll_view);
         scrollView.getViewTreeObserver().addOnPreDrawListener(
                 new ViewTreeObserver.OnPreDrawListener() {
-                    @Override public boolean onPreDraw() {
+                    @Override
+                    public boolean onPreDraw() {
                         scrollView.getViewTreeObserver().removeOnPreDrawListener(this);
-                        scrollView.setScrollY(1450); return false; } });
+                        scrollView.setScrollY(1450);
+                        return false;
+                    }
+                });
     }
 
-    public void initialisationCardsList(List<Card> cards) {
+    public void showCardsList(List<Card> cards) {
         recyclerView = findViewById(R.id.rv);
         recyclerView.setHasFixedSize(true);
         linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());
@@ -51,13 +54,11 @@ public class MainPageView extends AppCompatActivity implements com.example.medic
 
     }
 
-    public void onMoreInformationPresenter(Card card)
-    {
+    public void onMoreInformationPresenter(Card card) {
         mainPagePresenter.onBigInformationPage(card);
     }
 
-    public void startMoreInformationPage(Card card)
-    {
+    public void startMoreInformationPage(Card card) {
         Intent intent = new Intent(MainPageView.this, MoreInformationView.class);
         intent.putExtra("card", card);
         startActivity(intent);

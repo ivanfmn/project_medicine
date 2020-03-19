@@ -13,39 +13,40 @@ public class DataImportCards {
 
     public List<Card> getBaseCardTest() {
         List<Card> cards = new ArrayList<Card>();
-        for(int i = 0; i < 50; i++){
-            cards.add(fillingCard());
+        for (int i = 0; i < 50; i++) {
+            cards.add(fillCard());
         }
         return cards;
     }
 
-    private Card fillingCard() {
+    private Card fillCard() {
         Card card = new Card();
 
-        card.setFullName("Irina","Fomenko","Vasilevna");
+        card.setFullName("Irina", "Fomenko", "Vasilevna");
         card.setDateCard("15.12.2019");
         card.setNameService("Visit ");
         card.setPlace("Earth, Russia, Rostov region, Taganrog, Aleksandrovskaya 30, kv 424 xxxxxxxxxxxxxxxxxxxxxxxxx");
         card.setRepeatedReception(true, "01.01.2021");
 
         card.setOnSickLeave(true);
-        if(card.getOnSickLeave()) {
+        if (card.getOnSickLeave()) {
             card.setOnSickLeave(true, fillSickLeave());
         }
 
         card.setOnVaccination(true);
-        if(card.getOnVaccination()) {
+        if (card.getOnVaccination()) {
             card.setOnVaccination(true, fillVaccinationsList());
         }
+
         return card;
     }
 
     private SickLeave fillSickLeave() {
         SickLeave sickLeave = new SickLeave();
-        //
+
         sickLeave.setGoToWork(false);
         sickLeave.setDiagnosis("Bronhit");
-        sickLeave.setStartEndSickLeave("12/12/2015","25/12/2015");
+        sickLeave.setStartEndSickLeave("12/12/2015", "25/12/2015");
         sickLeave.setRecipes(fillRecipesList());
 
         return sickLeave;
@@ -53,10 +54,11 @@ public class DataImportCards {
 
     private List<Recipe> fillRecipesList() {
         List<Recipe> recipes = new ArrayList<>();
-        //
-        for(int i = 0; i < 5; i++) {
+
+        for (int i = 0; i < 5; i++) {
             recipes.add(fillRecipe());
         }
+
         return recipes;
     }
 
@@ -67,15 +69,14 @@ public class DataImportCards {
         recipe.setFrequency(2);
         recipe.setStartEndDate("01.01.2005", "05.01.2005");
         recipe.setReminder(false);
-        recipe.setCompabilityAll(true,false,true,2);
+        recipe.setCompabilityAll(true, false, true, 2);
         return recipe;
     }
 
-    private List<Vaccination> fillVaccinationsList()
-    {
+    private List<Vaccination> fillVaccinationsList() {
         List<Vaccination> vaccinations = new ArrayList<>();
         //
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             vaccinations.add(fillVaccination());
         }
         return vaccinations;
@@ -112,6 +113,7 @@ public class DataImportCards {
         }
 
         @Override
-        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        }
     }
 }

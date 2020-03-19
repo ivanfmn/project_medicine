@@ -20,14 +20,13 @@ public class MoreInformationView extends AppCompatActivity implements com.exampl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_big_informations);
         Intent intent = getIntent();
-        Card card = (Card)intent.getSerializableExtra("card");
+        Card card = (Card) intent.getSerializableExtra("card");
         moreInformationPresenter.onEnterInformation(card);
     }
 
 
     @SuppressLint("SetTextI18n")
-    public void setText(Card card)
-    {
+    public void fillTextWithDataCard(Card card) {
         TextView service = findViewById(R.id.service_text);
         TextView nameDoctor = findViewById(R.id.doctor_name);
         TextView date = findViewById(R.id.service_date_edit);
@@ -38,7 +37,7 @@ public class MoreInformationView extends AppCompatActivity implements com.exampl
 
 
         service.setText(card.getNameService());
-        nameDoctor.setText(card.getSurNameDoctor() + " " + card.getNameDoctor().substring(0,1) + ". " + card.getPatronymicDoctor().substring(0,1)+ ".");
+        nameDoctor.setText(card.getSurNameDoctor() + " " + card.getNameDoctor().substring(0, 1) + ". " + card.getPatronymicDoctor().substring(0, 1) + ".");
         date.setText(card.getDate());
         place.setText(card.getPlace());
         sickLeave.setText(card.getOnSickLeave().toString());

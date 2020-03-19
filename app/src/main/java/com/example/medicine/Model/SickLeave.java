@@ -13,59 +13,53 @@ public class SickLeave implements Serializable {
     private Boolean goToWork;
     private List<Recipe> recipes;
 
-    public SickLeave init()
-    {
-        return new SickLeave();
-    }
-    public void setDiagnosis(String Diagnosis)
-    {
-        this.diagnosis = Diagnosis;
-    }
-    public void setStartEndSickLeave(String Start, String End)
-    {
-        this.startSickLeave = Start;
-        this.endSickLeave = End;
-    }
-    private void setAmountRecipe(List<Recipe> Recipes)
-    {
-        this.amountRecipes = Recipes.size();
-    }
-    public void setGoToWork(Boolean YON)
-    {
-        this.goToWork = YON;
-    }
-    public void setRecipes(List<Recipe> Recipes)
-    {
-        this.recipes = Recipes;
-        this.setAmountRecipe(Recipes);
-    }
-    public void addRecipe(Recipe recipe)
-    {
-        this.recipes.add(recipe);
-    }
-    public String getDiagnosis()
-    {
-        return this.diagnosis;
-    }
-    public String getStartSickLeave()
-    {
-        return this.startSickLeave;
-    }
-    public String getEndSickLeave()
-    {
-        return this.endSickLeave;
-    }
-    public Integer getAmountRecipe()
-    {
-        return this.amountRecipes;
-    }
-    public Boolean getGoToWork()
-    {
-        return this.goToWork;
+    public void setDiagnosis(String Diagnosis) {
+        diagnosis = Diagnosis;
     }
 
-    public List<Recipe> getRecipes()
-    {
-        return this.recipes;
+    public void setStartEndSickLeave(String Start, String End) {
+        startSickLeave = Start;
+        endSickLeave = End;
+    }
+
+    private void setAmountRecipe(List<Recipe> Recipes) {
+        amountRecipes = Recipes.size();
+    }
+
+    public void setGoToWork(Boolean YON) {
+        goToWork = YON;
+    }
+
+    public void setRecipes(List<Recipe> Recipes) {
+        recipes = Recipes;
+        setAmountRecipe(Recipes);
+    }
+
+    public void addRecipe(Recipe recipe) {
+        recipes.add(recipe);
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public String getStartSickLeave() {
+        return startSickLeave;
+    }
+
+    public String getEndSickLeave() {
+        return endSickLeave;
+    }
+
+    public Integer getAmountRecipe() {
+        return amountRecipes;
+    }
+
+    public Boolean getGoToWork() {
+        return goToWork;
+    }
+
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 }

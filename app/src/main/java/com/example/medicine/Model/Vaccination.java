@@ -7,19 +7,19 @@ public class Vaccination implements Serializable {
     private String nameVaccination;
     private String dateEnter;
 
-    public void setNameVaccination(String nameVaccination) {
-        this.nameVaccination = nameVaccination;
+    public void setNameVaccination(String nameVac) {
+        nameVaccination = nameVac;
     }
 
-    public void setDateEnter(String dateEnter) {
-        this.dateEnter = dateEnter;
+    public void setDateEnter(String date) {
+        dateEnter = dateEnter;
     }
 
     public String getNameVaccination() {
-        return this.nameVaccination;
+        return nameVaccination;
     }
 
     public String getDateEnter() {
-        return this.dateEnter;
+        return dateEnter;
     }
 }

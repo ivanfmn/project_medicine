@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.medicine.Interface.MainPageView;
 import com.example.medicine.Model.Card;
-import com.example.medicine.Presenter.MainPagePresenter;
 import com.example.medicine.R;
 
 import java.util.List;
@@ -21,11 +20,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     private MainPageView mainPageView;
     private List<Card> cards;
 
-    public void setCardAdapter(List<Card> cards, MainPageView mainPageView){
+    public void setCardAdapter(List<Card> cards, MainPageView mainPageView) {
         this.cards = cards;
         this.mainPageView = mainPageView;
     }
-    public void setCardsListInAdapter(List<Card> cards){
+
+    public void setCardsListInAdapter(List<Card> cards) {
         this.cards = cards;
     }
 
@@ -42,7 +42,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.nameDoctor.setText(card.getNameDoctor());
         holder.nameService.setText(card.getNameService());
         holder.EnterBigInformation.setOnClickListener(
-                new View.OnClickListener(){
+                new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mainPageView.onMoreInformationPresenter(card);
@@ -50,23 +50,21 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
                 });
     }
 
-
     @Override
     public int getItemCount() {
         return this.cards.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    static class ViewHolder extends RecyclerView.ViewHolder {
         private TextView nameService;
         private TextView nameDoctor;
         private Button EnterBigInformation;
 
-
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.nameService = (TextView)itemView.findViewById(R.id.Service);
-            this.nameDoctor = (TextView)itemView.findViewById(R.id.Name);
-            this.EnterBigInformation = (Button)itemView.findViewById(R.id.Button);
+            this.nameService = (TextView) itemView.findViewById(R.id.Service);
+            this.nameDoctor = (TextView) itemView.findViewById(R.id.Name);
+            this.EnterBigInformation = (Button) itemView.findViewById(R.id.Button);
         }
     }
 }
