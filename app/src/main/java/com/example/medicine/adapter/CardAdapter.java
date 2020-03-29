@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.medicine.view.MainPageActivity;
 import com.example.medicine.model.Card;
 import com.example.medicine.R;
 
@@ -17,16 +16,16 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    private MainPageActivity mainPageActivity;
-    private List<Card> cards;
-
-    public void setCardAdapter(List<Card> cards, MainPageActivity mainPageActivity) {
-        this.cards = cards;
-        this.mainPageActivity = mainPageActivity;
+    public interface CardClickListener{
+        void onCardClick(Card card);
     }
 
-    public void setCardsListInAdapter(List<Card> cards) {
+    private CardClickListener view;
+    private List<Card> cards;
+
+    public void setCardAdapter(List<Card> cards, CardClickListener view) {
         this.cards = cards;
+        this.view = view;
     }
 
     @NonNull
@@ -39,32 +38,32 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CardAdapter.ViewHolder holder, final int position) {
         final Card card = cards.get(position);
-        holder.nameDoctor.setText(card.getNameDoctor());
-        holder.nameService.setText(card.getNameService());
-        holder.EnterBigInformation.setOnClickListener(
+        holder.doctorName.setText(card.getDoctorName());
+        holder.serviceName.setText(card.getServiceName());
+        holder.enterBigInformation.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mainPageActivity.onMoreInformationPresenter(card);
+                        view.onCardClick(card);
                     }
                 });
     }
 
     @Override
     public int getItemCount() {
-        return this.cards.size();
+        return cards.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameService;
-        private TextView nameDoctor;
-        private Button EnterBigInformation;
+        private TextView serviceName;
+        private TextView doctorName;
+        private Button enterBigInformation;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.nameService = (TextView) itemView.findViewById(R.id.Service);
-            this.nameDoctor = (TextView) itemView.findViewById(R.id.Name);
-            this.EnterBigInformation = (Button) itemView.findViewById(R.id.Button);
+            this.serviceName = (TextView) itemView.findViewById(R.id.service);
+            this.doctorName = (TextView) itemView.findViewById(R.id.same);
+            this.enterBigInformation = (Button) itemView.findViewById(R.id.button);
         }
     }
 }
