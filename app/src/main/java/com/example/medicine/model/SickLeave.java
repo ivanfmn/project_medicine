@@ -5,33 +5,57 @@ import java.util.List;
 
 public class SickLeave implements Serializable {
 
+    private int id;
     private String diagnosis;
-    private String startSickLeave;
-    private String endSickLeave;
-    private Integer amountRecipes;
-    private Boolean goToWork;
+    private String startSickleave;
+    private String endSickleave;
+    private Integer recipesAmount;
+    private Boolean workPermission;
     private List<Recipe> recipes;
 
-    public void setDiagnosis(String Diagnosis) {
-        diagnosis = Diagnosis;
+    public SickLeave(int id,
+                     String diagnosis,
+                     String startSickleave,
+                     String endSickleave,
+                     Integer recipesAmount,
+                     Boolean workPermission,
+                     List<Recipe> recipes) {
+        this.diagnosis = diagnosis;
+        this.startSickleave = startSickleave;
+        this.endSickleave = endSickleave;
+        this.recipesAmount = recipesAmount;
+        this.workPermission = workPermission;
+        this.recipes = recipes;
     }
 
-    public void setStartEndSickLeave(String Start, String End) {
-        startSickLeave = Start;
-        endSickLeave = End;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    private void setAmountRecipe(List<Recipe> Recipes) {
-        amountRecipes = Recipes.size();
+    public int getId() {
+        return id;
     }
 
-    public void setGoToWork(Boolean YON) {
-        goToWork = YON;
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
 
-    public void setRecipes(List<Recipe> Recipes) {
-        recipes = Recipes;
-        setAmountRecipe(Recipes);
+    public void setStartEndSickLeave(String start, String end) {
+        startSickleave = start;
+        endSickleave = end;
+    }
+
+    private void setAmountRecipe(List<Recipe> recipes) {
+        recipesAmount = recipes.size();
+    }
+
+    public void setWorkPermission(Boolean YON) {
+        workPermission = YON;
+    }
+
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
+        setAmountRecipe(recipes);
     }
 
     public void addRecipe(Recipe recipe) {
@@ -42,20 +66,20 @@ public class SickLeave implements Serializable {
         return diagnosis;
     }
 
-    public String getStartSickLeave() {
-        return startSickLeave;
+    public String getStartSickleave() {
+        return startSickleave;
     }
 
-    public String getEndSickLeave() {
-        return endSickLeave;
+    public String getEndSickleave() {
+        return endSickleave;
     }
 
     public Integer getAmountRecipe() {
-        return amountRecipes;
+        return recipesAmount;
     }
 
-    public Boolean getGoToWork() {
-        return goToWork;
+    public Boolean getWorkPermission() {
+        return workPermission;
     }
 
     public List<Recipe> getRecipes() {

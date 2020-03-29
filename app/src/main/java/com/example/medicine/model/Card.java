@@ -5,94 +5,119 @@ import java.util.List;
 
 public class Card implements Serializable {
 
-    private Integer numberCard;
-    private String nameDoctor;
-    private String surNameDoctor;
-    private String patronymicDoctor;
+    private int id;
+    private String doctorName;
+    private String doctorSurName;
+    private String doctorPatronymicName;
     private String date;
     private String place;
-    private Boolean repeatedReception;
-    private String dateRepeatedReception;
-    private String nameService;
-    private Boolean onVaccination;
-    private Integer amountVaccinations;
+    private boolean receptionRepeated;
+    private String receptionRepeatedDate;
+    private String serviceName;
+    private boolean isVaccination;
+    private int vaccinationsAmount;
     private List<Vaccination> vaccinations;
-    private Boolean onSickLeave;
+    private boolean isSickLeave;
     private SickLeave sickLeave;
 
-
-    public Card init() {
-        return new Card();
+    public Card(Integer id,
+                String serviceName,
+                String doctorName,
+                String doctorSurName,
+                String doctorPatronymicName,
+                String date,
+                String place,
+                Boolean receptionRepeated,
+                String receptionRepeatedDate,
+                Boolean isSickLeave,
+                SickLeave sickLeave,
+                Boolean isVaccination,
+                Integer vaccinationsAmount,
+                List<Vaccination> vaccinations) {
+        this.id = id;
+        this.doctorName = doctorName;
+        this.doctorSurName = doctorSurName;
+        this.doctorPatronymicName = doctorPatronymicName;
+        this.date = date;
+        this.place = place;
+        this.receptionRepeated = receptionRepeated;
+        this.receptionRepeatedDate = receptionRepeatedDate;
+        this.serviceName = serviceName;
+        this.isVaccination = isVaccination;
+        this.vaccinationsAmount = vaccinationsAmount;
+        this.vaccinations = vaccinations;
+        this.isSickLeave = isSickLeave;
+        this.sickLeave = sickLeave;
     }
 
-    public void setNumberCard(Integer Number) {
-        numberCard = Number;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setFullName(String Name, String SurName, String PatronymicDoctor) {
-        nameDoctor = Name;
-        surNameDoctor = SurName;
-        patronymicDoctor = PatronymicDoctor;
+    public int getId() {
+        return id;
     }
 
-    public void setNameService(String NameService) {
-        nameService = NameService;
+    public void setFullName(String name, String surName, String patronymicName) {
+        doctorName = name;
+        doctorSurName = surName;
+        this.doctorPatronymicName = patronymicName;
     }
 
-    public void setDateCard(String Date) {
-        date = Date;
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 
-    public void setPlace(String Place) {
-        place = Place;
+    public void setDateCard(String date) {
+        this.date = date;
     }
 
-    public void setRepeatedReception(Boolean No) {
-        repeatedReception = No;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
-    public void setRepeatedReception(Boolean Yes, String DateRepeatedReception) {
-        repeatedReception = Yes;
-        dateRepeatedReception = DateRepeatedReception;
+    public void setReceptionRepeated(Boolean no) {
+        receptionRepeated = no;
     }
 
-    public void setOnVaccination(Boolean No) {
-        onVaccination = No;
+    public void setRepeatedReception(Boolean yes, String dateRepeatedReception) {
+        receptionRepeated = yes;
+        this.receptionRepeatedDate = dateRepeatedReception;
     }
 
-    public void setOnVaccination(Boolean Yes, List<Vaccination> Vaccinations) {
-        onVaccination = Yes;
-        vaccinations = Vaccinations;
-        setAmountVaccinations(Vaccinations);
+    public void setVaccination(Boolean no) {
+        isVaccination = no;
     }
 
-    public void setOnSickLeave(Boolean No) {
-        onSickLeave = No;
+    public void setIsVaccination(Boolean yes, List<Vaccination> vaccinations) {
+        isVaccination = yes;
+        this.vaccinations = vaccinations;
+        setVaccinationsAmount(vaccinations);
     }
 
-    public void setOnSickLeave(Boolean Yes, SickLeave sickleave) {
-        onSickLeave = Yes;
+    public void setSickLeave(Boolean no) {
+        isSickLeave = no;
+    }
+
+    public void setIsSickLeave(Boolean yes, SickLeave sickleave) {
+        isSickLeave = yes;
         sickLeave = sickleave;
     }
 
-    private void setAmountVaccinations(List<Vaccination> Vaccinations) {
-        amountVaccinations = Vaccinations.size();
+    private void setVaccinationsAmount(List<Vaccination> vaccinations) {
+        vaccinationsAmount = vaccinations.size();
     }
 
-    public Integer getNemberCard() {
-        return numberCard;
+    public String getDoctorName() {
+        return doctorName;
     }
 
-    public String getNameDoctor() {
-        return nameDoctor;
+    public String getDoctorSurName() {
+        return doctorSurName;
     }
 
-    public String getSurNameDoctor() {
-        return surNameDoctor;
-    }
-
-    public String getPatronymicDoctor() {
-        return patronymicDoctor;
+    public String getDoctorPatronymicName() {
+        return doctorPatronymicName;
     }
 
     public String getDate() {
@@ -103,20 +128,20 @@ public class Card implements Serializable {
         return place;
     }
 
-    public Boolean getRepeatedReception() {
-        return repeatedReception;
+    public Boolean getReceptionRepeated() {
+        return receptionRepeated;
     }
 
-    public String getDateRepeatedReception() {
-        return dateRepeatedReception;
+    public String getReceptionRepeatedDate() {
+        return receptionRepeatedDate;
     }
 
-    public String getNameService() {
-        return nameService;
+    public String getServiceName() {
+        return serviceName;
     }
 
-    public Boolean getOnVaccination() {
-        return onVaccination;
+    public Boolean getVaccination() {
+        return isVaccination;
     }
 
     public List<Vaccination> getVaccinations() {
@@ -124,11 +149,11 @@ public class Card implements Serializable {
     }
 
     public Integer getAmountVaccination() {
-        return amountVaccinations;
+        return vaccinationsAmount;
     }
 
-    public Boolean getOnSickLeave() {
-        return onSickLeave;
+    public Boolean getIsSickLeave() {
+        return isSickLeave;
     }
 
     public SickLeave getSickLeave() {

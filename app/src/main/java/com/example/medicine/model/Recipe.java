@@ -4,21 +4,52 @@ import java.io.Serializable;
 
 public class Recipe implements Serializable {
 
-    private Integer numberRecipe;
-    private String nameDrug;
+    private int id;
+    private String drugName;
     private String startDate;
     private String endDate;
-    private Integer frequency;
-    private Float dosage;
-    private Boolean medicationReminder;
-    private Boolean drivingCar;
-    private Boolean alcogolCompatibility;
-    private Boolean cigareteCompatibility;
-    private Integer levelDiete;
+    private int frequency;
+    private float dosage;
+    private boolean medicationReminder;
+    private boolean drivingCar;
+    private boolean alcogolCompatibility;
+    private boolean cigareteCompatibility;
+    private int dieteLevel;
 
+    public Recipe(Integer id,
+                  String drugName,
+                  String startDate,
+                  String endDate,
+                  Integer frequency,
+                  Float dosage,
+                  Boolean medicationReminder,
+                  Boolean drivingCar,
+                  Boolean alcogolCompatibility,
+                  Boolean cigareteCompatibility,
+                  Integer dieteLevel) {
+        this.id = id;
+        this.drugName = drugName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.frequency = frequency;
+        this.dosage = dosage;
+        this.medicationReminder = medicationReminder;
+        this.drivingCar = drivingCar;
+        this.alcogolCompatibility = alcogolCompatibility;
+        this.cigareteCompatibility = cigareteCompatibility;
+        this.dieteLevel = dieteLevel;
+    }
 
-    public void setNameDrug(String Name) {
-        nameDrug = Name;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setDrugName(String name) {
+        drugName = name;
     }
 
     public void setStartEndDate(String start, String end) {
@@ -26,27 +57,27 @@ public class Recipe implements Serializable {
         endDate = end;
     }
 
-    public void setFrequency(Integer Frequency) {
-        frequency = Frequency;
+    public void setFrequency(Integer frequency) {
+        this.frequency = frequency;
     }
 
-    public void setDosage(Float Dosage) {
-        dosage = Dosage;
+    public void setDosage(Float dosage) {
+        this.dosage = dosage;
     }
 
-    public void setReminder(Boolean Reminder) {
-        medicationReminder = Reminder;
+    public void setReminder(Boolean reminder) {
+        medicationReminder = reminder;
     }
 
-    public void setCompabilityAll(Boolean DrivingCar, Boolean Alcogol, Boolean Cigarete, Integer LevelDiete) {
-        drivingCar = DrivingCar;
-        alcogolCompatibility = Alcogol;
-        cigareteCompatibility = Cigarete;
-        levelDiete = LevelDiete;
+    public void setCompabilityAll(Boolean drivingCar, Boolean alcogol, Boolean cigarete, Integer levelDiete) {
+        this.drivingCar = drivingCar;
+        alcogolCompatibility = alcogol;
+        cigareteCompatibility = cigarete;
+        this.dieteLevel = levelDiete;
     }
 
-    public String getNameDrug() {
-        return nameDrug;
+    public String getDrugName() {
+        return drugName;
     }
 
     public String getStartDate() {
@@ -81,7 +112,7 @@ public class Recipe implements Serializable {
         return cigareteCompatibility;
     }
 
-    public Integer getLevelDiete() {
-        return levelDiete;
+    public Integer getDieteLevel() {
+        return dieteLevel;
     }
 }
