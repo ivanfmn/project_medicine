@@ -1,24 +1,27 @@
 package com.example.medicine.presenter;
 
-import com.example.medicine.view.MainPageActivity;
+import com.example.medicine.repository.CardDataRepository;
+import com.example.medicine.view.MainPageContract;
 import com.example.medicine.model.Card;
-import com.example.medicine.model.DataImportCards;
 
-public class MainPagePresenter {
+public class MainPagePresenter implements MainPageContract.Presenter {
 
-    private MainPageActivity mainPageActivity;
-    private DataImportCards dataImportCards = new DataImportCards();
+    private MainPageContract.View view;
+    private CardDataRepository cardDataRepository = new CardDataRepository();
 
-    public MainPagePresenter(MainPageActivity mainPageActivity) {
-        this.mainPageActivity = mainPageActivity;
+    public MainPagePresenter(MainPageContract.View view) {
+        this.view = view;
     }
 
     public void onRecycleView() {
-
-        mainPageActivity.showCardsList(dataImportCards.getBaseCardTest());
+        view.showCardsList(cardDataRepository.getDataCards(true));
     }
 
     public void onBigInformationPage(Card card) {
-        mainPageActivity.startMoreInformationPage(card);
+        view.startMoreInformationPage(card);
+    }
+
+    public void onRVSActivity(int idRequest) {
+        view.startRVSPage(idRequest);
     }
 }

@@ -23,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="150dp"
+                android:onClick="onClick"
                 android:text="Recipes" />
 
             <Button
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="250dp"
+                android:onClick="onClick"
                 android:text="Vaccinations" />
 
             <Button
@@ -39,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="350dp"
+                android:onClick="onClick"
                 android:text="SickLeaves" />
 
             <Button
@@ -100,7 +103,6 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:context=".activity.CardsListView"></androidx.recyclerview.widget.RecyclerView>
+            android:layout_height="wrap_content"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>
