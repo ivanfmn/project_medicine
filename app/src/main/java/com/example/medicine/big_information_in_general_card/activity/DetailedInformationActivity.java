@@ -1,4 +1,4 @@
-package com.example.medicine.activity;
+package com.example.medicine.big_information_in_general_card.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,12 +8,13 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.medicine.model.Card;
-import com.example.medicine.presenter.DetailedInformationContract;
 import com.example.medicine.R;
+import com.example.medicine.big_information_in_general_card.presenter.DetailedInformationPresenter;
+import com.example.medicine.big_information_in_general_card.view.DetailedInformationContract;
 
-public class DetailedInformationActivity extends AppCompatActivity implements com.example.medicine.view.DetailedInformationContract.view {
+public class DetailedInformationActivity extends AppCompatActivity implements DetailedInformationContract.View {
 
-    private com.example.medicine.view.DetailedInformationContract.presenter presenter;
+    private DetailedInformationContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class DetailedInformationActivity extends AppCompatActivity implements co
         setContentView(R.layout.activity_detailed_informations);
         Intent intent = getIntent();
         Card card = (Card) intent.getSerializableExtra("card");
-        presenter = new DetailedInformationContract(this);
+        presenter = new DetailedInformationPresenter(this);
         presenter.onEnterInformation(card);
     }
 

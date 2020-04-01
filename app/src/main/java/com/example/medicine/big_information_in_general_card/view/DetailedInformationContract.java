@@ -1,14 +1,14 @@
-package com.example.medicine.view;
+package com.example.medicine.big_information_in_general_card.view;
 
 import com.example.medicine.model.Card;
 
 public interface DetailedInformationContract {
 
-    interface view {
+    interface View {
         void fillTextWithDataCard(Card card);
     }
 
-    interface presenter {
+    interface Presenter {
         void onEnterInformation(Card card);
     }
 }
