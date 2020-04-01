@@ -85,22 +85,20 @@ public class Card implements Serializable {
         this.receptionRepeatedDate = dateRepeatedReception;
     }
 
-    public void setVaccination(Boolean no) {
-        isVaccination = no;
+    public void setVaccination(Boolean isVaccination) {
+        this.isVaccination = isVaccination;
     }
 
-    public void setIsVaccination(Boolean yes, List<Vaccination> vaccinations) {
-        isVaccination = yes;
+    public void setVaccinationsList(List<Vaccination> vaccinations) {
         this.vaccinations = vaccinations;
         setVaccinationsAmount(vaccinations);
     }
 
-    public void setSickLeave(Boolean no) {
-        isSickLeave = no;
+    public void setSickLeave(Boolean isSickLeave) {
+        this.isSickLeave = isSickLeave;
     }
 
-    public void setIsSickLeave(Boolean yes, SickLeave sickleave) {
-        isSickLeave = yes;
+    public void setSickLeaveList(SickLeave sickleave) {
         sickLeave = sickleave;
     }
 
@@ -160,5 +158,3 @@ public class Card implements Serializable {
         return sickLeave;
     }
 }
-
-

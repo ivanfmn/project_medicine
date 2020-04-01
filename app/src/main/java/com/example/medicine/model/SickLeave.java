@@ -49,8 +49,8 @@ public class SickLeave implements Serializable {
         recipesAmount = recipes.size();
     }
 
-    public void setWorkPermission(Boolean YON) {
-        workPermission = YON;
+    public void setWorkPermission(Boolean isWorkPermission) {
+        workPermission = isWorkPermission;
     }
 
     public void setRecipes(List<Recipe> recipes) {
