@@ -8,14 +8,11 @@ import android.util.Log;
 class DataBaseHelper extends SQLiteOpenHelper {
 
     public DataBaseHelper(Context context) {
-        // конструктор суперкласса
         super(context, "myDataBase", null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DBHelper", "--- onCreate database ---");
-        // создаем таблицу с полями
         db.execSQL("create table mytable ("
                 + "id integer primary key autoincrement,"
                 + "name text,"
@@ -30,5 +27,6 @@ class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
     }
 }
