@@ -1,4 +1,4 @@
-package com.example.medicine.adapter;
+package com.example.medicine.main_page.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,14 +16,14 @@ import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
 
-    public interface CardClickListener{
+    public interface CardClickListener {
         void onCardClick(Card card);
     }
 
     private CardClickListener view;
     private List<Card> cards;
 
-    public void setCardAdapter(List<Card> cards, CardClickListener view) {
+    public CardAdapter(List<Card> cards, CardClickListener view) {
         this.cards = cards;
         this.view = view;
     }
