@@ -1,7 +1,7 @@
-package com.example.medicine.presenter;
+package com.example.medicine.main_page.presenter;
 
+import com.example.medicine.main_page.view.MainPageContract;
 import com.example.medicine.repository.CardDataRepository;
-import com.example.medicine.view.MainPageContract;
 import com.example.medicine.model.Card;
 
 public class MainPagePresenter implements MainPageContract.Presenter {
@@ -21,7 +21,15 @@ public class MainPagePresenter implements MainPageContract.Presenter {
         view.startMoreInformationPage(card);
     }
 
-    public void onRVSActivity(int idRequest) {
-        view.startRVSPage(idRequest);
+    public void onRecipeActivity() {
+        view.startRecipeActivity();
+    }
+
+    public void onSeakLeaveActivity() {
+        view.startSeakLeaveActivity();
+    }
+
+    public void onVaccinationActivity() {
+        view.startVaccinationActivity();
     }
 }

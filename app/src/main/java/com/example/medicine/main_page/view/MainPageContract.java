@@ -1,4 +1,4 @@
-package com.example.medicine.view;
+package com.example.medicine.main_page.view;
 
 import com.example.medicine.model.Card;
 
@@ -9,12 +9,16 @@ public interface MainPageContract {
     interface View {
         void showCardsList(List<Card> cards);
         void startMoreInformationPage(Card card);
-        void startRVSPage(int idRequest);
+        void startRecipeActivity();
+        void startSeakLeaveActivity();
+        void startVaccinationActivity();
     }
 
     interface Presenter {
         void onRecycleView();
         void onBigInformationPage(Card card);
-        void onRVSActivity(int idRequest);
+        void onRecipeActivity();
+        void onSeakLeaveActivity();
+        void onVaccinationActivity();
     }
 }
