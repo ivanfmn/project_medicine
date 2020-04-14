@@ -11,14 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.MainPageActivity">
+        <activity android:name=".main_page.activity.MainPageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DetailedInformationActivity" />
+        <activity android:name=".big_information_in_general_card.activity.DetailedInformationActivity" />
+        <activity android:name=".recipes.activity.RecipeCards"/>
+        <activity android:name=".vaccinations.activity.VacccinationsCards"/>
+        <activity android:name=".seakleave.activity.SeakLeaveCards"/>
     </application>
 
 </manifest>
